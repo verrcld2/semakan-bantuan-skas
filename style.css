@@ -1,0 +1,538 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  background-color: var(--primary-blue);
+  color: var(--text-white);
+  overflow-x: hidden;
+}
+
+/* Layout Styles */
+.page {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  padding-top: 80px; /* Untuk navbar fixed */
+}
+
+.hero {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--accent-yellow);
+  padding: 15px 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.navbar-img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar-nav a {
+  color: #ffffff !important;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.navbar-nav a:hover {
+  background-color: var(--primary-blue);
+  color: var(--accent-yellow);
+}
+
+.navbar-nav a span {
+  color: #007bff;
+}
+
+/* Image Styles */
+.hero img {
+  width: 100%;
+  height: auto;
+  display: flex;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styles */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--primary-blue);
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px;
+  margin: 5px auto 0;
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+}
+
+label {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--accent-yellow);
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid var(--accent-yellow);
+  border-radius: 5px;
+  font-size: 13px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="tel"] {
+  width: 100% !important;
+  padding: 10px 45px !important;
+  margin-bottom: 0 !important;
+  border: 1px solid var(--accent-yellow);
+  border-radius: 5px;
+  font-size: 13px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--accent-yellow);
+}
+
+.btn {
+  width: 60%;
+  max-width: 300px;
+  padding: 12px;
+  background-color: var(--accent-yellow);
+  color: var(--primary-blue);
+  border: none;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto 0; /* Mengubah margin: atas 20px, kiri-kanan auto, bawah 5px */
+}
+
+.btn:hover {
+  background-color: var(--royal-gold);
+}
+
+/* Text Styles */
+p {
+  font-size: 16px;
+  color: var(--accent-yellow);
+  text-align: center;
+  margin: 10px auto 10px;
+  line-height: 1.6;
+}
+
+h4 {
+  font-size: 20px;
+  color: var(--accent-yellow);
+  text-align: center;
+  margin: 0;
+  justify-content: center;
+}
+
+h4 span {
+  color: red;
+}
+
+/* Loading Screen */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 4, 252, 0.193);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.loading-screen img {
+  max-width: 80px;
+  max-height: 80px;
+}
+
+/* Footer Styles */
+footer {
+  width: 100%;
+  /* background-color: var(--accent-yellow); */
+  padding: 0;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 0;
+  line-height: 0;
+  font-size: 0;
+}
+
+footer img {
+  max-width: 380px;
+  height: auto;
+  display: block;
+  margin: 0;
+  padding: 0;
+  vertical-align: bottom !important;
+  font-size: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .form-container {
+    width: 100%;
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 15px;
+  }
+
+  .navbar-img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .navbar-nav {
+    gap: 10px;
+  }
+
+  .navbar-nav a {
+    font-size: 14px;
+    padding: 6px 8px;
+  }
+
+  .hero img {
+    width: 280px;
+  }
+
+  .form-container {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding-top: 60px;
+  }
+
+  .navbar-nav {
+    gap: 5px;
+  }
+
+  .navbar-nav a {
+    font-size: 12px;
+    padding: 4px 6px;
+  }
+
+  .hero img {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .form-container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  .btn {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  h4 {
+    font-size: 18px;
+  }
+}
+
+/* Utility Classes */
+.hidden {
+  display: none;
+}
+
+.active {
+  font-weight: bold;
+  color: #333 !important;
+}
+
+/* Khusus untuk device dengan lebar 375px */
+@media (max-width: 375px) {
+  .navbar {
+    padding: 6px 8px;
+  }
+
+  .navbar-logo {
+    gap: 6px;
+  }
+
+  .navbar-img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .navbar-nav {
+    gap: 2px;
+  }
+
+  .navbar-nav a {
+    font-size: 10px;
+    padding: 3px 4px;
+  }
+}
+
+/* Tambahan untuk orientasi landscape pada mobile */
+@media (max-height: 480px) and (orientation: landscape) {
+  .navbar {
+    padding: 5px 10px;
+  }
+
+  .navbar-img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .navbar-nav a {
+    font-size: 11px;
+    padding: 3px 5px;
+  }
+
+  .btn {
+    padding: 8px;
+    width: 50%;
+  }
+}
+
+:root {
+  --primary-blue: #dce8eb; /* Biru tua untuk background */
+  --accent-yellow: #0a4d68; /* Kuning untuk highlight */
+  --text-white: #ffffff; /* Putih untuk teks */
+  --royal-gold: #c5a572; /* Emas untuk aksen */
+}
+
+.container {
+  background-color: var(--primary-blue);
+  color: var(--text-white);
+}
+
+.highlight {
+  color: var(--accent-yellow);
+  font-weight: bold;
+}
+
+.accent {
+  color: var(--royal-gold);
+}
+
+/* Gradient background seperti di gambar */
+.gradient-bg {
+  background: linear-gradient(
+    to right,
+    var(--primary-blue) 85%,
+    rgba(27, 43, 95, 0.8)
+  );
+}
+
+.otp-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 10px auto 20px;
+}
+
+.otp-input {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  border: 1px solid var(--accent-yellow);
+  border-radius: 5px;
+  appearance: textfield; /* Firefox */
+}
+
+/* Menghilangkan arrow spinner di Chrome, Safari, Edge, Opera */
+.otp-input::-webkit-outer-spin-button,
+.otp-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.otp-input:focus {
+  outline: none;
+  border-color: var(--accent-yellow);
+  box-shadow: 0 0 3px rgba(255, 215, 0, 0.5);
+}
+
+@media (max-width: 375px) {
+  .otp-container {
+    gap: 12px;
+  }
+
+  .otp-input {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+}
+
+/* Tambahkan CSS ini di dalam tag <style> */
+._record-box {
+  width: 100%;
+  max-width: 500px;
+  margin: 5px auto 5px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 50px;
+}
+
+.list-box {
+  max-height: 163px;
+  overflow-y: auto;
+  scrollbar-width: none; /* Untuk Firefox */
+  -ms-overflow-style: none; /* Untuk Internet Explorer dan Edge */
+}
+
+.list-box::-webkit-scrollbar {
+  display: none; /* Untuk Chrome, Safari dan Opera */
+}
+
+.list .item {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid var(--accent-yellow);
+  border-radius: 5px;
+}
+
+.record_logo {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
+.record_logo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.center {
+  flex: 1;
+}
+
+.center .h1 {
+  color: var(--accent-yellow);
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.center .h2 {
+  color: var(--accent-yellow);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Perbaikan untuk input telepon */
+.iti {
+  width: 100% !important;
+  margin-bottom: 20px;
+}
+
+.iti__flag-container {
+  z-index: 1;
+}
+
+input[type="tel"] {
+  width: 100% !important;
+  padding: 10px 45px !important;
+  margin-bottom: 0 !important;
+  border: 1px solid var(--accent-yellow);
+  border-radius: 5px;
+  font-size: 13px;
+  transition: border-color 0.3s ease;
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 450px) {
+  .iti {
+    max-width: 100%;
+  }
+
+  input[type="tel"] {
+    width: 100% !important;
+  }
+}
+
+.no-margin {
+  margin: 0;
+}
